@@ -17,6 +17,7 @@ router.post("/register", async (req, res) => {
         email: req.body.email,
         username: req.body.username,
       };
+      //register(user, password, cb) : is provided by pasport-local-mongoose
       const newUser = await User.register(user, req.body.password);
     
       res.status(200).send(newUser);
@@ -33,13 +34,7 @@ router.get("/login", (req, res) => {
 });
 
 //To login the user
-router.post(
-  "/login",
-  passport.authenticate(
-    "local",
-    {
-      failureRedirect: "/login",
-    }),(req, res) => {
+router.post("/login", passport.authenticate("local",{ failureRedirect: "/login" }), (req, res) => {
         res.redirect('/');
       }
 );

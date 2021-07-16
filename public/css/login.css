@@ -5,6 +5,7 @@ body {
 .logincontainer {
     background-color: white;
     padding: 24px;
+    border-radius: 8px;
     box-shadow: 0px 1px 4px rgba(0,0,0,0.3);
 }
 
